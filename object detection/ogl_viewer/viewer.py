@@ -608,7 +608,7 @@ class GLViewer:
                         color_id = color_class
                     else:
                         pos = [_objs.object_list[i].position[0], _objs.object_list[i].bounding_box[0][1], _objs.object_list[i].position[2]]
-                    self.create_id_rendering(pos, color_id, _objs.object_list[i].position[2], _objs.object_list[i].label)
+                    self.create_id_rendering(pos, color_id, _objs.object_list[i].position[2], _objs.object_list[i].sublabel)
 
                     self.create_bbox_rendering(bounding_box, color_id)
 
@@ -624,7 +624,7 @@ class GLViewer:
 
     def create_id_rendering(self, _center, _clr, _depth, _label):
         tmp = ObjectClassName()
-        tmp.name = " Label: " + str(_label) + ", depth: " + str(_depth)
+        tmp.name = " Label: " + str(_label) + ", depth: " + str(round(-_depth, 2))
         tmp.color = _clr
         tmp.position = np.array([_center[0], _center[1], _center[2]], np.float32)
         self.objects_name = np.append(self.objects_name, tmp)
