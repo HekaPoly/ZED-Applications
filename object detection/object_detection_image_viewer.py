@@ -87,7 +87,7 @@ def main():
     # Enable object detection module
     obj_param = sl.ObjectDetectionParameters()
     # Defines if the object detection will track objects across images flow.++
-    obj_param.enable_tracking = True       # if True, enable positional tracking
+    obj_param.enable_tracking = False       # if True, enable positional tracking
 
     obj_param.detection_model = sl.OBJECT_DETECTION_MODEL.MULTI_CLASS_BOX_ACCURATE
 
@@ -104,7 +104,8 @@ def main():
     # Configure object detection runtime parameters
     obj_runtime_param = sl.ObjectDetectionRuntimeParameters()
     obj_runtime_param.detection_confidence_threshold = 60
-    obj_runtime_param.object_class_filter = [sl.OBJECT_CLASS.BAG, sl.OBJECT_CLASS.ELECTRONICS]    # Only detect Persons
+    #obj_param.filtering_mode = sl.OBJECT_FILTERING_MODE.NONE
+    obj_runtime_param.object_class_filter = [sl.OBJECT_CLASS.FRUIT_VEGETABLE, sl.OBJECT_CLASS.BAG, sl.OBJECT_CLASS.ELECTRONICS]    # Only detect Persons
 
     # Create ZED objects filled in the main loop
     objects = sl.Objects()
