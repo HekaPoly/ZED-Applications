@@ -61,7 +61,7 @@ def get_color_class(_idx):
 def generate_color_id(_idx):
     clr = []
     if _idx < 0:
-        clr = [236, 184, 36, 255]
+        clr = [36, 238, 193, 255]
         clr = np.divide(clr, 255.0)
     else:
         offset = _idx % 5
@@ -604,10 +604,10 @@ class GLViewer:
                 if bounding_box.any():
                     color_class = get_color_class(0)
                     color_id = generate_color_id(_objs.object_list[i].id)
-                    if _objs.object_list[i].tracking_state != sl.OBJECT_TRACKING_STATE.OK:
-                        color_id = color_class
-                    else:
-                        pos = [_objs.object_list[i].position[0], _objs.object_list[i].bounding_box[0][1], _objs.object_list[i].position[2]]
+                    #if _objs.object_list[i].tracking_state != sl.OBJECT_TRACKING_STATE.OK:
+                    #    color_id = color_class
+                    #else:
+                    pos = [_objs.object_list[i].position[0], _objs.object_list[i].bounding_box[0][1], _objs.object_list[i].position[2]]
                     self.create_id_rendering(pos, color_id, _objs.object_list[i].position[2], _objs.object_list[i].sublabel)
 
                     self.create_bbox_rendering(bounding_box, color_id)
